@@ -10,7 +10,7 @@ public class References {
         ROPE, DAGGER, WRENCH, PISTOL, CANDLESTICK, PIPE
     }
 
-    public enum Rooms {
+    public enum RoomType {
         COURTYARD, GAME, STUDY, DINING, GARAGE, LIVING, KITCHEN, BEDROOM, BATHROOM
     }
 }

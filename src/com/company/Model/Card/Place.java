@@ -1,15 +1,15 @@
 package com.company.Model.Card;
 
 public class Place extends Card{
-    private final References.Rooms TYPE;
+    private final References.RoomType TYPE;
 
 
-    protected Place(String name, References.Rooms type) {
+    protected Place(String name, References.RoomType type) {
         super(name);
         TYPE = type;
     }
 
-    public References.Rooms getTYPE() {
+    public References.RoomType getTYPE() {
         return TYPE;
     }
 
