@@ -1,4 +1,4 @@
-package com.company.Model.GameStarter;
+package com.company.Model.Game;
 
 import com.company.Model.GameBoard.Block;
 import com.company.Model.Player.Player;

@@ -1,13 +1,20 @@
 package com.company.Model.Card;
 
 public abstract class Card {
-    final String NAME;
+    private final String NAME;
 
-    protected Card(String name) {
+    public Card(String name) {
         NAME = name;
     }
 
     public String getNAME() {
         return NAME;
+    }
+
+    @Override
+    public String toString() {
+        return "{\"Card\":"
+                + NAME
+                + "}";
     }
 }
