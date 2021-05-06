@@ -13,4 +13,8 @@ public class References {
     public enum RoomType {
         COURTYARD, GAME, STUDY, DINING, GARAGE, LIVING, KITCHEN, BEDROOM, BATHROOM
     }
+
+    public enum Colors {
+        PURPLE, WHITE, RED, GREEN, YELLOW, BLUE
+    }
 }
