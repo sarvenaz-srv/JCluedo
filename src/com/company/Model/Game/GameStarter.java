@@ -1,6 +1,9 @@
 package com.company.Model.Game;
 
 import com.company.Model.Card.*;
+import com.company.Model.GameBoard.Block;
+import com.company.Model.GameBoard.Location;
+import com.company.Model.GameBoard.Room;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,7 +26,18 @@ public class GameStarter {
 
     public void boardInit()
     {
-
+        int boardSize = SharedData.getInstance().BOARD_SIZE;
+        Block[][] board = new Block[boardSize][boardSize];
+        for (int i = 0; i < boardSize; i++)
+        {
+            for (int j = 0; j < boardSize; j++)
+            {
+                Block newBlock = new Block(new Location(j, i));
+                board[i][j] = newBlock;
+            }
+        }
+        
+        // TODO init rooms
     }
 
     public void cardInit()
