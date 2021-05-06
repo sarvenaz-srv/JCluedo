@@ -10,7 +10,4 @@ public class GameStarter {
     public void playersInit(){}
     public void boardInit(){}
     public void cardInit(){}
-    public GameState makeFirstState(){
-        return new GameState(null, false);
-    }
 }
