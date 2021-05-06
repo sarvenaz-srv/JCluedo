@@ -20,4 +20,5 @@ public class SharedData {
 
     public final int BOARD_SIZE = 20;
     public final int PLAYER_COUNT = 6;
+    public final int PLAYER_HAND_SIZE = 3;
 }
