@@ -17,4 +17,7 @@ public class SharedData {
     public CardDeck cardDeck;
     public GameBoard gameBoard;
     public Player[] players;
+
+    public final int BOARD_SIZE = 20;
+    public final int PLAYER_COUNT = 6;
 }
