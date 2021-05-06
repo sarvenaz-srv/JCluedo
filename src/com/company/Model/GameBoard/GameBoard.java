@@ -5,9 +5,9 @@ import java.util.HashMap;
 
 public class GameBoard {
     private Block[][] blocks;
-    private HashMap<Block,Room> rooms;
+    private HashMap<Room, Block> rooms;
 
-    public GameBoard(Block[][] blocks, HashMap<Block, Room> rooms) {
+    public GameBoard(Block[][] blocks, HashMap<Room, Block> rooms) {
         this.blocks = blocks;
         this.rooms = rooms;
     }
@@ -20,11 +20,11 @@ public class GameBoard {
         this.blocks = blocks;
     }
 
-    public HashMap<Block, Room> getRooms() {
+    public HashMap<Room, Block> getRooms() {
         return rooms;
     }
 
-    public void setRooms(HashMap<Block, Room> rooms) {
+    public void setRooms(HashMap<Room, Block> rooms) {
         this.rooms = rooms;
     }
 
