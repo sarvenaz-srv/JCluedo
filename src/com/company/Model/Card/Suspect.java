@@ -3,7 +3,7 @@ package com.company.Model.Card;
 public class Suspect extends Card{
     private final References.Character TYPE;
 
-    protected Suspect(String name, References.Character type) {
+    public Suspect(String name, References.Character type) {
         super(name);
         TYPE = type;
     }

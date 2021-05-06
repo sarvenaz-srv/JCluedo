@@ -4,7 +4,7 @@ public class Place extends Card{
     private final References.RoomType TYPE;
 
 
-    protected Place(String name, References.RoomType type) {
+    public Place(String name, References.RoomType type) {
         super(name);
         TYPE = type;
     }
