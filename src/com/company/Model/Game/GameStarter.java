@@ -11,6 +11,11 @@ import java.util.ArrayList;
 public class GameStarter {
     private GameLoop gameLoop;
 
+    public GameStarter()
+    {
+        gameLoop = new GameLoop();
+    }
+
     public void gameInit()
     {
         cardInit();

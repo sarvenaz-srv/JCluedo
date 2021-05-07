@@ -4,6 +4,12 @@ public class GameLoop {
     private GameManager gameManager;
     private boolean isGameFinished;
 
-    public void init (){}
+    public GameLoop()
+    {
+        gameManager = new GameManager();
+        isGameFinished = false;
+    }
+
+    public void init(){}
 
 }
