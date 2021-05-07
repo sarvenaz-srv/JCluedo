@@ -4,7 +4,9 @@ import com.company.Model.Player.Player;
 
 public class GameManager {
 
-    public void play (Player player){
-
+    public boolean play (Player player)
+    {
+        boolean isGameFinished = false;
+        return isGameFinished;
     }
 }

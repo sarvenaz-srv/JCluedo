@@ -21,6 +21,8 @@ public class GameStarter {
         cardInit();
         boardInit();
         playersInit();
+
+        gameLoop.init();
     }
 
     public void playersInit()
