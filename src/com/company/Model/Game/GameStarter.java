@@ -4,12 +4,9 @@ import com.company.Model.Card.*;
 import com.company.Model.Card.References.*;
 import com.company.Model.GameBoard.Block;
 import com.company.Model.GameBoard.Location;
-import com.company.Model.GameBoard.Room;
 import com.company.Model.Player.Player;
 
-import java.lang.Character;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class GameStarter {
     private GameLoop gameLoop;
@@ -54,29 +51,19 @@ public class GameStarter {
 
     public void cardInit()
     {
-        ArrayList<Card> cards = new ArrayList<>(Arrays.asList(
-           new Place(References.RoomType.BATHROOM.toString(), References.RoomType.BATHROOM),
-           new Place(References.RoomType.BEDROOM.toString(), References.RoomType.BEDROOM),
-           new Place(References.RoomType.KITCHEN.toString(), References.RoomType.KITCHEN),
-           new Place(References.RoomType.COURTYARD.toString(), References.RoomType.COURTYARD),
-           new Place(References.RoomType.DINING.toString(), References.RoomType.DINING),
-           new Place(References.RoomType.GARAGE.toString(), References.RoomType.GARAGE),
-           new Place(References.RoomType.GAME.toString(), References.RoomType.GAME),
-           new Place(References.RoomType.STUDY.toString(), References.RoomType.STUDY),
-           new Place(References.RoomType.LIVING.toString(), References.RoomType.LIVING),
-           new Suspect(References.Character.GREEN.toString(), References.Character.GREEN),
-           new Suspect(References.Character.WHITE.toString(), References.Character.WHITE),
-           new Suspect(References.Character.MUSTARD.toString(), References.Character.MUSTARD),
-           new Suspect(References.Character.SCARLET.toString(), References.Character.SCARLET),
-           new Suspect(References.Character.PEACOCK.toString(), References.Character.PEACOCK),
-           new Suspect(References.Character.PLUM.toString(), References.Character.PLUM),
-           new Tool(References.Weapon.CANDLESTICK.toString(), References.Weapon.CANDLESTICK),
-           new Tool(References.Weapon.DAGGER.toString(), References.Weapon.DAGGER),
-           new Tool(References.Weapon.PIPE.toString(), References.Weapon.PIPE),
-           new Tool(References.Weapon.PISTOL.toString(), References.Weapon.PISTOL),
-           new Tool(References.Weapon.ROPE.toString(), References.Weapon.ROPE),
-           new Tool(References.Weapon.WRENCH.toString(), References.Weapon.WRENCH)
-        ));
+        ArrayList<Card> cards = new ArrayList<>();
+        for (RoomType roomType : RoomType.values())
+        {
+            cards.add(new Place(roomType.toString(), roomType));
+        }
+        for (References.Character character : References.Character.values())
+        {
+            cards.add(new Suspect(character.toString(), character));
+        }
+        for (Weapon weapon : Weapon.values())
+        {
+            cards.add(new Tool(weapon.toString(), weapon));
+        }
         SharedData.getInstance().cardDeck = new CardDeck(cards);
         SharedData.getInstance().cardDeck.shuffle();
     }
