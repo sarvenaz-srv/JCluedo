@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 public class GameStarter {
     private GameLoop gameLoop;
-    private CardDeck cardDeck;
 
     public void gameInit()
     {
