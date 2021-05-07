@@ -6,7 +6,7 @@ public class References {
         PLUM, WHITE, SCARLET, GREEN, MUSTARD, PEACOCK
     }
 
-    public enum Weapons {
+    public enum Weapon {
         ROPE, DAGGER, WRENCH, PISTOL, CANDLESTICK, PIPE
     }
 
@@ -14,7 +14,7 @@ public class References {
         COURTYARD, GAME, STUDY, DINING, GARAGE, LIVING, KITCHEN, BEDROOM, BATHROOM
     }
 
-    public enum Colors {
+    public enum Color {
         PURPLE, WHITE, RED, GREEN, YELLOW, BLUE
     }
 }

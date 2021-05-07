@@ -2,23 +2,25 @@ package com.company.Model.Player;
 
 import com.company.Model.Card.Card;
 import com.company.Model.Card.References;
+import com.company.Model.Card.References.Color;
 import com.company.Model.GameBoard.Location;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Player {
     private final String NAME;
     private final References.Character CHARACTER;
-    private final String COLOR;
+    private final Color COLOR;
     private final Location LOCATION;
     private final ArrayList<Card> cards;
 
-    public Player(String name, References.Character character, String color, Location location) {
+    public Player(String name, References.Character character, Color color, Location location, ArrayList<Card> cards) {
         NAME = name;
         CHARACTER = character;
         COLOR = color;
         LOCATION = location;
-        cards = new ArrayList<>();
+        this.cards = cards;
     }
 
     public String getNAME() {
@@ -29,7 +31,7 @@ public class Player {
         return CHARACTER;
     }
 
-    public String getCOLOR() {
+    public Color getCOLOR() {
         return COLOR;
     }
 
