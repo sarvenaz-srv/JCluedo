@@ -13,14 +13,13 @@ public class Player {
     private final References.Character CHARACTER;
     private final Color COLOR;
     private Location location;
-    private final ArrayList<Card> cards;
+    private ArrayList<Card> hand;
 
-    public Player(String name, References.Character character, Color color, Location location, ArrayList<Card> cards) {
+    public Player(String name, References.Character character, Color color, Location location) {
         NAME = name;
         CHARACTER = character;
         COLOR = color;
         this.location = location;
-        this.cards = cards;
     }
 
     public String getNAME() {
@@ -44,8 +43,14 @@ public class Player {
         this.location = location;
     }
 
-    public ArrayList<Card> getCards() {
-        return cards;
+    public ArrayList<Card> getHand()
+    {
+        return hand;
+    }
+
+    public void setHand(ArrayList<Card> hand)
+    {
+        this.hand = hand;
     }
 
     @Override
