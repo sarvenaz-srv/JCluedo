@@ -35,8 +35,13 @@ public class Player {
         return COLOR;
     }
 
-    public Location getLOCATION() {
+    public Location getLocation() {
         return location;
+    }
+
+    public void setLocation(Location location)
+    {
+        this.location = location;
     }
 
     public ArrayList<Card> getCards() {
