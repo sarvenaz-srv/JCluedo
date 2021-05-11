@@ -12,14 +12,14 @@ public class Player {
     private final String NAME;
     private final References.Character CHARACTER;
     private final Color COLOR;
-    private final Location LOCATION;
+    private Location location;
     private final ArrayList<Card> cards;
 
     public Player(String name, References.Character character, Color color, Location location, ArrayList<Card> cards) {
         NAME = name;
         CHARACTER = character;
         COLOR = color;
-        LOCATION = location;
+        this.location = location;
         this.cards = cards;
     }
 
@@ -36,7 +36,7 @@ public class Player {
     }
 
     public Location getLOCATION() {
-        return LOCATION;
+        return location;
     }
 
     public ArrayList<Card> getCards() {
@@ -49,7 +49,7 @@ public class Player {
                 + "                        \"NAME\":\"" + NAME + "\""
                 + ",                         \"CHARACTER\":\"" + CHARACTER + "\""
                 + ",                         \"COLOR\":\"" + COLOR + "\""
-                + ",                         \"LOCATION\":" + LOCATION
+                + ",                         \"LOCATION\":" + location
                 + ",                         \"cards\":" + cards
                 + "}}";
     }
