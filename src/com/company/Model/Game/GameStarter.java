@@ -93,4 +93,20 @@ public class GameStarter {
                 new Location(boardSize-1, boardSize/3),
         };
     }
+
+    private Location[] getDefaultRoomLocations()
+    {
+        int boardSize = SharedData.getInstance().BOARD_SIZE;
+        return new Location[]{
+                new Location(0, 0),
+                new Location(0, boardSize-1),
+                new Location(boardSize-1, boardSize-1),
+                new Location(boardSize-1, 0),
+                new Location(boardSize-1, boardSize/2),
+                new Location(boardSize/2, boardSize-1),
+                new Location(boardSize/2, 0),
+                new Location(0, boardSize/2),
+                new Location(boardSize/2, boardSize/2),
+        };
+    }
 }
