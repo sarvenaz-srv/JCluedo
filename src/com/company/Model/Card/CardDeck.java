@@ -37,12 +37,11 @@ public class CardDeck {
 
     public ArrayList<Card> getRandomCards(int number){
         ArrayList<Card> retVal = new ArrayList<>();
-        ArrayList<Card> tempCards = new ArrayList<>(cards);
         Random random = new Random();
         for(int i = 0; i<number; i++){
-            Card card = tempCards.get(random.nextInt(tempCards.size()));
+            Card card = cards.get(random.nextInt(cards.size()));
             retVal.add(card);
-            tempCards.remove(card);
+            cards.remove(card);
         }
         return retVal;
     }
