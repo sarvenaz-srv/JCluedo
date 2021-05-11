@@ -4,6 +4,7 @@ import com.company.Model.Card.*;
 import com.company.Model.Card.References.*;
 import com.company.Model.GameBoard.Block;
 import com.company.Model.GameBoard.Location;
+import com.company.Model.Player.Notebook;
 import com.company.Model.Player.Player;
 
 import java.util.ArrayList;
@@ -33,8 +34,13 @@ public class GameStarter {
         {
             References.Character character = References.Character.values()[i];
             Color color = Color.values()[i];
-            players[i] = new Player(character.toString(), character, color, playerLocations[i], SharedData.getInstance().cardDeck.getRandomCards(SharedData.getInstance().PLAYER_HAND_SIZE));
+            Notebook notebook = new Notebook(new ArrayList<Card>(SharedData.getInstance().cardDeck.getAllCards()));
+            players[i] = new Player(character.toString(), character, color, playerLocations[i], notebook);
             SharedData.getInstance().gameBoard.getBlocks()[playerLocations[i].getY()][playerLocations[i].getX()].setFull(true);
+        }
+        for (int i = 0; i < SharedData.getInstance().PLAYER_COUNT; i++)
+        {
+            players[i].setHand(SharedData.getInstance().cardDeck.getRandomCards(SharedData.getInstance().PLAYER_HAND_SIZE));
         }
         SharedData.getInstance().players = players;
     }
