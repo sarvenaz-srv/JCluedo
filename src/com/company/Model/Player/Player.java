@@ -14,12 +14,14 @@ public class Player {
     private final Color COLOR;
     private Location location;
     private ArrayList<Card> hand;
+    private Notebook notebook;
 
-    public Player(String name, References.Character character, Color color, Location location) {
+    public Player(String name, References.Character character, Color color, Location location, Notebook notebook) {
         NAME = name;
         CHARACTER = character;
         COLOR = color;
         this.location = location;
+        this.notebook = notebook;
     }
 
     public String getNAME() {
@@ -53,6 +55,11 @@ public class Player {
         this.hand = hand;
     }
 
+    public Notebook getNotebook()
+    {
+        return notebook;
+    }
+
     @Override
     public String toString() {
         return "{\"Player\":{"
@@ -60,7 +67,7 @@ public class Player {
                 + ",                         \"CHARACTER\":\"" + CHARACTER + "\""
                 + ",                         \"COLOR\":\"" + COLOR + "\""
                 + ",                         \"LOCATION\":" + location
-                + ",                         \"cards\":" + cards
+                + ",                         \"cards\":" + hand
                 + "}}";
     }
 }
