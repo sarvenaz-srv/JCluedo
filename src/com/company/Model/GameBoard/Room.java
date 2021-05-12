@@ -7,15 +7,13 @@ public class Room {
     private Block door;
     private int height;
     private int width;
-    private Location center;
     private final References.RoomType TYPE;
 
-    public Room(Block space, Block door, int height, int width, Location center, References.RoomType TYPE) {
+    public Room(Block space, Block door, int height, int width, References.RoomType TYPE) {
         this.space = space;
         this.door = door;
         this.height = height;
         this.width = width;
-        this.center = center;
         this.TYPE = TYPE;
     }
 
@@ -51,14 +49,6 @@ public class Room {
         this.width = width;
     }
 
-    public Location getCenter() {
-        return center;
-    }
-
-    public void setCenter(Location center) {
-        this.center = center;
-    }
-
     public References.RoomType getTYPE() {
         return TYPE;
     }
@@ -70,7 +60,6 @@ public class Room {
                 ", door=" + door +
                 ", height=" + height +
                 ", width=" + width +
-                ", center=" + center +
                 ", TYPE=" + TYPE +
                 '}';
     }

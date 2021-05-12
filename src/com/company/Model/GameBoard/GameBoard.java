@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class GameBoard {
     private Block[][] blocks;
-    private HashMap<Block,Room> rooms;
+    private HashMap<Block, Room> rooms;
 
     public GameBoard(Block[][] blocks, HashMap<Block, Room> rooms) {
         this.blocks = blocks;

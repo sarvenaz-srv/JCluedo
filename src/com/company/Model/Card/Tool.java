@@ -1,14 +1,14 @@
 package com.company.Model.Card;
 
 public class Tool extends Card{
-    private final References.Weapons TYPE;
+    private final References.Weapon TYPE;
 
-    public Tool(String name, References.Weapons type) {
+    public Tool(String name, References.Weapon type) {
         super(name);
         TYPE = type;
     }
 
-    public References.Weapons getTYPE() {
+    public References.Weapon getTYPE() {
         return TYPE;
     }
 

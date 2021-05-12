@@ -2,23 +2,26 @@ package com.company.Model.Player;
 
 import com.company.Model.Card.Card;
 import com.company.Model.Card.References;
+import com.company.Model.Card.References.Color;
 import com.company.Model.GameBoard.Location;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Player {
     private final String NAME;
     private final References.Character CHARACTER;
-    private final String COLOR;
-    private final Location LOCATION;
-    private final ArrayList<Card> cards;
+    private final Color COLOR;
+    private Location location;
+    private ArrayList<Card> hand;
+    private Notebook notebook;
 
-    public Player(String name, References.Character character, String color, Location location) {
+    public Player(String name, References.Character character, Color color, Location location, Notebook notebook) {
         NAME = name;
         CHARACTER = character;
         COLOR = color;
-        LOCATION = location;
-        cards = new ArrayList<>();
+        this.location = location;
+        this.notebook = notebook;
     }
 
     public String getNAME() {
@@ -29,16 +32,32 @@ public class Player {
         return CHARACTER;
     }
 
-    public String getCOLOR() {
+    public Color getCOLOR() {
         return COLOR;
     }
 
-    public Location getLOCATION() {
-        return LOCATION;
+    public Location getLocation() {
+        return location;
     }
 
-    public ArrayList<Card> getCards() {
-        return cards;
+    public void setLocation(Location location)
+    {
+        this.location = location;
+    }
+
+    public ArrayList<Card> getHand()
+    {
+        return hand;
+    }
+
+    public void setHand(ArrayList<Card> hand)
+    {
+        this.hand = hand;
+    }
+
+    public Notebook getNotebook()
+    {
+        return notebook;
     }
 
     @Override
@@ -47,8 +66,8 @@ public class Player {
                 + "                        \"NAME\":\"" + NAME + "\""
                 + ",                         \"CHARACTER\":\"" + CHARACTER + "\""
                 + ",                         \"COLOR\":\"" + COLOR + "\""
-                + ",                         \"LOCATION\":" + LOCATION
-                + ",                         \"cards\":" + cards
+                + ",                         \"LOCATION\":" + location
+                + ",                         \"cards\":" + hand
                 + "}}";
     }
 }

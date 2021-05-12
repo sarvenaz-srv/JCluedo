@@ -56,4 +56,8 @@ public class CardDeck {
         return retVal;
     }
 
+    public ArrayList<Card> getAllCards()
+    {
+        return cards;
+    }
 }
