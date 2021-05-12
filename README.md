@@ -3,3 +3,4 @@ Java Cluedo game is implemented by Advanced Programming teaching assistants, fro
 
 # Contributors 
 ![Bardia Ardakanian](https://github.com/bardia-ardakanian)
+![Korosh Roohi](https://github.com/KoroshRH)
