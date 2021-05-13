@@ -1,5 +1,6 @@
 package com.company.Model.GameBoard;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -26,6 +27,14 @@ public class GameBoard {
 
     public void setRooms(HashMap<Block, Room> rooms) {
         this.rooms = rooms;
+    }
+
+    public void setFull(boolean isFull, Location location){
+        blocks[location.getX()][location.getX()].setFull(isFull);
+    }
+
+    public boolean isFull(Location location){
+        return blocks[location.getX()][location.getY()].isFull();
     }
 
     @Override
