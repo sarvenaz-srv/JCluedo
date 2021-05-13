@@ -24,6 +24,7 @@ public class GameStarter {
     {
         cardInit();
         boardInit();
+        murderInit();
         playersInit();
 
         gameLoop.init();
@@ -95,6 +96,12 @@ public class GameStarter {
         SharedData.getInstance().cardDeck.shuffle();
     }
 
+    public void murderInit(){
+        SharedData.getInstance().murderPlace = SharedData.getInstance().cardDeck.getRandomPlace();
+        SharedData.getInstance().murderSuspect = SharedData.getInstance().cardDeck.getRandomSuspect();
+        SharedData.getInstance().murderWeapon = SharedData.getInstance().cardDeck.getRandomTool();
+    }
+
     // default locations for max 6 players
     private Location[] getDefaultPlayerLocations()
     {
@@ -109,19 +116,18 @@ public class GameStarter {
         };
     }
 
-    private HashMap<Location, Location> getDefaultRoomLocations()
-    {
+    private HashMap<Location, Location> getDefaultRoomLocations() {
         int boardSize = SharedData.getInstance().BOARD_SIZE;
         HashMap<Location, Location> roomWithDoor = new HashMap<>();
-        roomWithDoor.put(new Location(0,0), new Location(0, 1));
-        roomWithDoor.put(new Location(0,boardSize-1), new Location(1, boardSize-1));
-        roomWithDoor.put(new Location(boardSize-1,boardSize-1), new Location(boardSize-2, boardSize-1));
-        roomWithDoor.put(new Location(boardSize-1,0), new Location(boardSize-1, 1));
-        roomWithDoor.put(new Location(boardSize-1, boardSize/2), new Location(boardSize-2, boardSize/2));
-        roomWithDoor.put(new Location(boardSize/2, boardSize-1), new Location(boardSize/2, boardSize-2));
-        roomWithDoor.put(new Location(boardSize/2, 0), new Location(boardSize/2, 1));
-        roomWithDoor.put(new Location(0, boardSize/2), new Location(1, boardSize/2));
-        roomWithDoor.put(new Location(boardSize/2, boardSize/2), new Location(boardSize/2 + 1, boardSize/2));
+        roomWithDoor.put(new Location(0, 0), new Location(0, 1));
+        roomWithDoor.put(new Location(0, boardSize - 1), new Location(1, boardSize - 1));
+        roomWithDoor.put(new Location(boardSize - 1, boardSize - 1), new Location(boardSize - 2, boardSize - 1));
+        roomWithDoor.put(new Location(boardSize - 1, 0), new Location(boardSize - 1, 1));
+        roomWithDoor.put(new Location(boardSize - 1, boardSize / 2), new Location(boardSize - 2, boardSize / 2));
+        roomWithDoor.put(new Location(boardSize / 2, boardSize - 1), new Location(boardSize / 2, boardSize - 2));
+        roomWithDoor.put(new Location(boardSize / 2, 0), new Location(boardSize / 2, 1));
+        roomWithDoor.put(new Location(0, boardSize / 2), new Location(1, boardSize / 2));
+        roomWithDoor.put(new Location(boardSize / 2, boardSize / 2), new Location(boardSize / 2 + 1, boardSize / 2));
         return roomWithDoor;
     }
 }

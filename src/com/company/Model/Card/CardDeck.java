@@ -1,6 +1,7 @@
 package com.company.Model.Card;
 
 import com.company.Model.Card.Card;
+import com.company.Model.Player.Player;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -59,5 +60,45 @@ public class CardDeck {
     public ArrayList<Card> getAllCards()
     {
         return cards;
+    }
+
+
+    public Tool getRandomTool(){
+        ArrayList<Tool> allTools = new ArrayList<>();
+        for(Card card : cards){
+            if(card instanceof Tool){
+                allTools.add((Tool) card);
+            }
+        }
+        Random random = new Random();
+        Tool retVal = allTools.get(random.nextInt(allTools.size()));
+        cards.remove(retVal);
+        return retVal;
+    }
+
+    public Suspect getRandomSuspect(){
+        ArrayList<Suspect> allSuspects = new ArrayList<>();
+        for(Card card : cards){
+            if(card instanceof Suspect){
+                allSuspects.add((Suspect) card);
+            }
+        }
+        Random random = new Random();
+        Suspect retVal = allSuspects.get(random.nextInt(allSuspects.size()));
+        cards.remove(retVal);
+        return retVal;
+    }
+
+    public Place getRandomPlace(){
+        ArrayList<Place> allPlaces = new ArrayList<>();
+        for(Card card : cards){
+            if(card instanceof Place){
+                allPlaces.add((Place) card);
+            }
+        }
+        Random random = new Random();
+        Place retVal = allPlaces.get(random.nextInt(allPlaces.size()));
+        cards.remove(retVal);
+        return retVal;
     }
 }

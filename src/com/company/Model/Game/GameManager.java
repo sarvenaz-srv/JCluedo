@@ -1,9 +1,13 @@
 package com.company.Model.Game;
 
+import com.company.Model.Card.Place;
+import com.company.Model.Card.Suspect;
+import com.company.Model.Card.Tool;
 import com.company.Model.GameBoard.Directions;
 import com.company.Model.GameBoard.Location;
 import com.company.Model.Player.Player;
-import com.sun.jdi.LocalVariable;
+
+import java.util.Random;
 
 public class GameManager {
 
@@ -57,6 +61,14 @@ public class GameManager {
          }
     }
 
+    public boolean correctGuess(Suspect suspect, Tool tool, Place place){
+        return suspect.equals(SharedData.getInstance().murderSuspect) && tool.equals(SharedData.getInstance().murderWeapon) && place.equals(SharedData.getInstance().murderPlace);
+    }
+
+    public int rollTheDice(){
+        Random random = new Random();
+        return random.nextInt(6)+1;
+    }
 
     private boolean validIndex(int index){
         return index >= 0 && index < SharedData.getInstance().BOARD_SIZE;

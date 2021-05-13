@@ -1,6 +1,9 @@
 package com.company.Model.Game;
 
 import com.company.Model.Card.CardDeck;
+import com.company.Model.Card.Place;
+import com.company.Model.Card.Suspect;
+import com.company.Model.Card.Tool;
 import com.company.Model.GameBoard.GameBoard;
 import com.company.Model.Player.Player;
 
@@ -17,6 +20,9 @@ public class SharedData {
     public CardDeck cardDeck;
     public GameBoard gameBoard;
     public Player[] players;
+    public Place murderPlace;
+    public Suspect murderSuspect;
+    public Tool murderWeapon;
 
     public final int BOARD_SIZE = 20;
     public final int PLAYER_COUNT = 6;

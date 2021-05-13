@@ -28,6 +28,10 @@ public class Notebook {
         return checklist;
     }
 
+    public void tickACard(Card card){
+        checklist.replace(card, true);
+    }
+
     @Override
     public String toString() {
         return "{\"Notebook\":{"
