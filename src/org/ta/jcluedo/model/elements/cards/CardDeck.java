@@ -1,7 +1,4 @@
-package com.company.Model.Card;
-
-import com.company.Model.Card.Card;
-import com.company.Model.Player.Player;
+package org.ta.jcluedo.model.elements.cards;
 
 import java.util.ArrayList;
 import java.util.Collection;

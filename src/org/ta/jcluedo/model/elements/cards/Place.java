@@ -1,20 +1,21 @@
-package com.company.Model.Card;
+package org.ta.jcluedo.model.elements.cards;
 
-public class Suspect extends Card{
-    private final References.Character TYPE;
+public class Place extends Card{
+    private final References.RoomType TYPE;
 
-    public Suspect(String name, References.Character type) {
+
+    public Place(String name, References.RoomType type) {
         super(name);
         TYPE = type;
     }
 
-    public References.Character getTYPE() {
+    public References.RoomType getTYPE() {
         return TYPE;
     }
 
     @Override
     public String toString() {
-        return "{\"Suspect\":"
+        return "{\"Place\":"
                 + super.toString()
                 + ",                         \"TYPE\":\"" + TYPE + "\""
                 + "}";

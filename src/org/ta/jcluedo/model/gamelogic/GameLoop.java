@@ -1,4 +1,6 @@
-package com.company.Model.Game;
+package org.ta.jcluedo.model.gamelogic;
+
+import org.ta.jcluedo.model.utils.SharedData;
 
 public class GameLoop {
     private GameManager gameManager;

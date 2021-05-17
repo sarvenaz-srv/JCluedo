@@ -1,6 +1,6 @@
-package com.company.Model.GameBoard;
+package org.ta.jcluedo.model.elements.board;
 
-import com.company.Model.Card.References;
+import org.ta.jcluedo.model.elements.cards.References;
 
 public class Room {
     private Block space;

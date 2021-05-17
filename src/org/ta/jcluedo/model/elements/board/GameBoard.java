@@ -1,6 +1,5 @@
-package com.company.Model.GameBoard;
+package org.ta.jcluedo.model.elements.board;
 
-import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.HashMap;
 

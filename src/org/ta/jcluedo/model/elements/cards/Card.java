@@ -1,4 +1,4 @@
-package com.company.Model.Card;
+package org.ta.jcluedo.model.elements.cards;
 
 public abstract class Card {
     private final String NAME;

@@ -1,20 +1,20 @@
-package com.company.Model.Card;
+package org.ta.jcluedo.model.elements.cards;
 
-public class Tool extends Card{
-    private final References.Weapon TYPE;
+public class Suspect extends Card{
+    private final References.Character TYPE;
 
-    public Tool(String name, References.Weapon type) {
+    public Suspect(String name, References.Character type) {
         super(name);
         TYPE = type;
     }
 
-    public References.Weapon getTYPE() {
+    public References.Character getTYPE() {
         return TYPE;
     }
 
     @Override
     public String toString() {
-        return "{\"Tool\":"
+        return "{\"Suspect\":"
                 + super.toString()
                 + ",                         \"TYPE\":\"" + TYPE + "\""
                 + "}";

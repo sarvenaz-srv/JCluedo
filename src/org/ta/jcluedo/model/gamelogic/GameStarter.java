@@ -1,13 +1,16 @@
-package com.company.Model.Game;
+package org.ta.jcluedo.model.gamelogic;
 
-import com.company.Model.Card.*;
-import com.company.Model.Card.References.*;
-import com.company.Model.GameBoard.Block;
-import com.company.Model.GameBoard.GameBoard;
-import com.company.Model.GameBoard.Location;
-import com.company.Model.GameBoard.Room;
-import com.company.Model.Player.Notebook;
-import com.company.Model.Player.Player;
+import com.company.model.card.*;
+import org.ta.jcluedo.model.card.*;
+import org.ta.jcluedo.model.elements.cards.*;
+import org.ta.jcluedo.model.elements.cards.References.*;
+import org.ta.jcluedo.model.elements.board.Block;
+import org.ta.jcluedo.model.elements.board.GameBoard;
+import org.ta.jcluedo.model.elements.board.Location;
+import org.ta.jcluedo.model.elements.board.Room;
+import org.ta.jcluedo.model.elements.player.Notebook;
+import org.ta.jcluedo.model.elements.player.Player;
+import org.ta.jcluedo.model.utils.SharedData;
 
 import java.util.ArrayList;
 import java.util.HashMap;

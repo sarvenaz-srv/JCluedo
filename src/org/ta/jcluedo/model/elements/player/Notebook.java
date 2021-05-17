@@ -1,6 +1,6 @@
-package com.company.Model.Player;
+package org.ta.jcluedo.model.elements.player;
 
-import com.company.Model.Card.Card;
+import org.ta.jcluedo.model.elements.cards.Card;
 
 import java.util.ArrayList;
 import java.util.HashMap;
