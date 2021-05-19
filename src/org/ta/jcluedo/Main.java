@@ -1,4 +1,4 @@
-package com.company;
+package org.ta.jcluedo;
 
 public class Main {
 

@@ -1,12 +1,11 @@
-package com.company.Model.Player;
+package org.ta.jcluedo.model.elements.player;
 
-import com.company.Model.Card.Card;
-import com.company.Model.Card.References;
-import com.company.Model.Card.References.Color;
-import com.company.Model.GameBoard.Location;
+import org.ta.jcluedo.model.elements.cards.Card;
+import org.ta.jcluedo.model.elements.cards.References;
+import org.ta.jcluedo.model.elements.cards.References.Color;
+import org.ta.jcluedo.model.elements.board.Location;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Player {
     private final String NAME;

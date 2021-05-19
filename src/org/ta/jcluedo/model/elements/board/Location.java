@@ -1,4 +1,4 @@
-package com.company.Model.GameBoard;
+package org.ta.jcluedo.model.elements.board;
 
 public class Location {
     private int x;

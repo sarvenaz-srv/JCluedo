@@ -1,6 +1,6 @@
-package com.company.Model.Player;
+package org.ta.jcluedo.model.elements.player;
 
-import com.company.Model.Card.Card;
+import org.ta.jcluedo.model.elements.cards.Card;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,6 +26,10 @@ public class Notebook {
 
     public HashMap<Card, Boolean> getChecklist() {
         return checklist;
+    }
+
+    public void tickACard(Card card){
+        checklist.replace(card, true);
     }
 
     @Override

@@ -1,8 +1,11 @@
-package com.company.Model.Game;
+package org.ta.jcluedo.model.utils;
 
-import com.company.Model.Card.CardDeck;
-import com.company.Model.GameBoard.GameBoard;
-import com.company.Model.Player.Player;
+import org.ta.jcluedo.model.elements.cards.CardDeck;
+import org.ta.jcluedo.model.elements.cards.Place;
+import org.ta.jcluedo.model.elements.cards.Suspect;
+import org.ta.jcluedo.model.elements.cards.Tool;
+import org.ta.jcluedo.model.elements.board.GameBoard;
+import org.ta.jcluedo.model.elements.player.Player;
 
 public class SharedData {
     private static SharedData instance;
@@ -17,6 +20,9 @@ public class SharedData {
     public CardDeck cardDeck;
     public GameBoard gameBoard;
     public Player[] players;
+    public Place murderPlace;
+    public Suspect murderSuspect;
+    public Tool murderWeapon;
 
     public final int BOARD_SIZE = 20;
     public final int PLAYER_COUNT = 6;

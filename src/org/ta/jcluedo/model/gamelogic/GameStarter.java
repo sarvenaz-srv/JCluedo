@@ -1,13 +1,16 @@
-package com.company.Model.Game;
+package org.ta.jcluedo.model.gamelogic;
 
-import com.company.Model.Card.*;
-import com.company.Model.Card.References.*;
-import com.company.Model.GameBoard.Block;
-import com.company.Model.GameBoard.GameBoard;
-import com.company.Model.GameBoard.Location;
-import com.company.Model.GameBoard.Room;
-import com.company.Model.Player.Notebook;
-import com.company.Model.Player.Player;
+import com.company.model.card.*;
+import org.ta.jcluedo.model.card.*;
+import org.ta.jcluedo.model.elements.cards.*;
+import org.ta.jcluedo.model.elements.cards.References.*;
+import org.ta.jcluedo.model.elements.board.Block;
+import org.ta.jcluedo.model.elements.board.GameBoard;
+import org.ta.jcluedo.model.elements.board.Location;
+import org.ta.jcluedo.model.elements.board.Room;
+import org.ta.jcluedo.model.elements.player.Notebook;
+import org.ta.jcluedo.model.elements.player.Player;
+import org.ta.jcluedo.model.utils.SharedData;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,6 +27,7 @@ public class GameStarter {
     {
         cardInit();
         boardInit();
+        murderInit();
         playersInit();
 
         gameLoop.init();
@@ -95,6 +99,12 @@ public class GameStarter {
         SharedData.getInstance().cardDeck.shuffle();
     }
 
+    public void murderInit(){
+        SharedData.getInstance().murderPlace = SharedData.getInstance().cardDeck.getRandomPlace();
+        SharedData.getInstance().murderSuspect = SharedData.getInstance().cardDeck.getRandomSuspect();
+        SharedData.getInstance().murderWeapon = SharedData.getInstance().cardDeck.getRandomTool();
+    }
+
     // default locations for max 6 players
     private Location[] getDefaultPlayerLocations()
     {
@@ -109,19 +119,18 @@ public class GameStarter {
         };
     }
 
-    private HashMap<Location, Location> getDefaultRoomLocations()
-    {
+    private HashMap<Location, Location> getDefaultRoomLocations() {
         int boardSize = SharedData.getInstance().BOARD_SIZE;
         HashMap<Location, Location> roomWithDoor = new HashMap<>();
-        roomWithDoor.put(new Location(0,0), new Location(0, 1));
-        roomWithDoor.put(new Location(0,boardSize-1), new Location(1, boardSize-1));
-        roomWithDoor.put(new Location(boardSize-1,boardSize-1), new Location(boardSize-2, boardSize-1));
-        roomWithDoor.put(new Location(boardSize-1,0), new Location(boardSize-1, 1));
-        roomWithDoor.put(new Location(boardSize-1, boardSize/2), new Location(boardSize-2, boardSize/2));
-        roomWithDoor.put(new Location(boardSize/2, boardSize-1), new Location(boardSize/2, boardSize-2));
-        roomWithDoor.put(new Location(boardSize/2, 0), new Location(boardSize/2, 1));
-        roomWithDoor.put(new Location(0, boardSize/2), new Location(1, boardSize/2));
-        roomWithDoor.put(new Location(boardSize/2, boardSize/2), new Location(boardSize/2 + 1, boardSize/2));
+        roomWithDoor.put(new Location(0, 0), new Location(0, 1));
+        roomWithDoor.put(new Location(0, boardSize - 1), new Location(1, boardSize - 1));
+        roomWithDoor.put(new Location(boardSize - 1, boardSize - 1), new Location(boardSize - 2, boardSize - 1));
+        roomWithDoor.put(new Location(boardSize - 1, 0), new Location(boardSize - 1, 1));
+        roomWithDoor.put(new Location(boardSize - 1, boardSize / 2), new Location(boardSize - 2, boardSize / 2));
+        roomWithDoor.put(new Location(boardSize / 2, boardSize - 1), new Location(boardSize / 2, boardSize - 2));
+        roomWithDoor.put(new Location(boardSize / 2, 0), new Location(boardSize / 2, 1));
+        roomWithDoor.put(new Location(0, boardSize / 2), new Location(1, boardSize / 2));
+        roomWithDoor.put(new Location(boardSize / 2, boardSize / 2), new Location(boardSize / 2 + 1, boardSize / 2));
         return roomWithDoor;
     }
 }
