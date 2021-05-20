@@ -8,7 +8,8 @@ import java.util.Date;
 
 public class LoggingManager {
 
-    private final String ROOT_FILE = "./log/";
+    private final String ROOT_DIR = "./log/";
+    private final String LOG_FILE = "log.txt";
     private final String ERROR_FILE = "./log/error/";
     private final String CLASS_NAME;
 
@@ -24,7 +25,7 @@ public class LoggingManager {
      */
     public void log(String msg, LogLevels level) {
         try {
-            FileWriter.writeTextTOEnd(ROOT_FILE, logPattern(msg, level.toString()));
+            FileWriter.writeTextTOEnd(ROOT_DIR, LOG_FILE, logPattern(msg, level.toString()));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -37,11 +38,11 @@ public class LoggingManager {
      * @param msg
      * @return
      */
-    private String logPattern(String level, String msg) {
+    private String logPattern(String msg, String level) {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date date = new Date();
         String result = formatter.format(date) + " [" + level + "] " + CLASS_NAME
-                + " " + msg + "\n";
+                + " ---> " + msg + "\n";
         return result;
     }
 

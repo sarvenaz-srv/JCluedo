@@ -1,8 +1,10 @@
 package org.ta.jcluedo.controller;
 
+import org.ta.jcluedo.model.gamelogic.GameStarter;
 import org.ta.jcluedo.model.utils.logger.LogLevels;
 import org.ta.jcluedo.model.utils.logger.LoggingManager;
-import org.ta.jcluedo.view.menu.MainMenu;
+import org.ta.jcluedo.view.GameFrame;
+
 
 /**
  * This is the CLass that Runs at first
@@ -16,7 +18,15 @@ public class MainController {
      */
     public void start() {
         logger.log("Program Starts", LogLevels.INFO); // make log
-        MainMenu.printMenu();
+        // Here Should show a mainMenu then ask Person to join a game
+        //MainMenu.printMenu();
+
+        //In Case Player Chose to play a  Game Starter should start
+        GameStarter gameStarter = new GameStarter();
+        gameStarter.gameInit();
+
+        GameFrame gameFrame = new GameFrame();
+        gameFrame.draw();
     }
 
     private void commandParser() {

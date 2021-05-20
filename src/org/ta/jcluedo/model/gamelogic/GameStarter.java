@@ -21,17 +21,19 @@ import java.util.HashMap;
 public class GameStarter {
     private static final LoggingManager logger = new LoggingManager(GameStarter.class.getName());
     private GameLoop gameLoop;
+    private SharedData sharedData;
 
     public GameStarter() {
         gameLoop = new GameLoop();
+        sharedData = SharedData.getInstance();
     }
 
     public void gameInit() {
         cardInit();
         boardInit();
-        playersInit();
         murderInit();
-        gameLoop.init();
+        playersInit();
+//        gameLoop.init();
     }
 
     /**
@@ -39,21 +41,21 @@ public class GameStarter {
      */
     public void playersInit() {
         Location[] playerLocations = getDefaultPlayerLocations();
-        Player[] players = new Player[SharedData.getInstance().PLAYER_COUNT];
-        for (int i = 0; i < SharedData.getInstance().PLAYER_COUNT; i++) {
+        Player[] players = new Player[sharedData.PLAYER_COUNT];
+        for (int i = 0; i < sharedData.PLAYER_COUNT; i++) {
             References.Character character = References.Character.values()[i];
             Color color = Color.values()[i];
-            Notebook notebook = new Notebook(new ArrayList<Card>(SharedData.getInstance().cardDeck.getAllCards()));
+            Notebook notebook = new Notebook(new ArrayList<Card>(sharedData.cardDeck.getAllCards()));
 
             players[i] = new Player(character.toString(), character, color, playerLocations[i], notebook);
-            SharedData.getInstance().gameBoard.getBlocks()
+            sharedData.gameBoard.getBlocks()
                     [playerLocations[i].getY()][playerLocations[i].getX()].setFull(true);
         }
-        for (int i = 0; i < SharedData.getInstance().PLAYER_COUNT; i++) {
-            players[i].setHand(SharedData.getInstance().cardDeck.getRandomCards
-                    (SharedData.getInstance().PLAYER_HAND_SIZE));
+        for (int i = 0; i < sharedData.PLAYER_COUNT; i++) {
+            players[i].setHand(sharedData.cardDeck.getRandomCards
+                    (sharedData.PLAYER_HAND_SIZE));
         }
-        SharedData.getInstance().players = players;
+        sharedData.players = players;
         logger.log("Players are initialized ", LogLevels.INFO);
     }
 
@@ -61,7 +63,7 @@ public class GameStarter {
      * Initialize the elements of Game Board
      */
     public void boardInit() {
-        int boardSize = SharedData.getInstance().BOARD_SIZE;
+        int boardSize = sharedData.BOARD_SIZE;
         Block[][] board = new Block[boardSize][boardSize];
         for (int i = 0; i < boardSize; i++) { // for each of Blocks
             for (int j = 0; j < boardSize; j++) {
@@ -76,13 +78,13 @@ public class GameStarter {
         for (Location roomLocation : roomLocations.keySet()) {
             Block roomBlock = board[roomLocation.getY()][roomLocation.getX()];
             Block doorBlock = board[roomLocations.get(roomLocation).getY()][roomLocations.get(roomLocation).getX()];
-            Room room = new Room(roomBlock, doorBlock, SharedData.getInstance().DEFAULT_ROOM_HEIGHT,
-                    SharedData.getInstance().DEFAULT_ROOM_WIDTH, RoomType.values()[count]);
+            Room room = new Room(roomBlock, doorBlock, sharedData.DEFAULT_ROOM_HEIGHT,
+                    sharedData.DEFAULT_ROOM_WIDTH, RoomType.values()[count]);
             rooms.put(roomBlock, room);
             count++;
         }
 
-        SharedData.getInstance().gameBoard = new GameBoard(board, rooms);
+        sharedData.gameBoard = new GameBoard(board, rooms);
         logger.log("GameBoard are initialized ", LogLevels.INFO);
     }
 
@@ -97,8 +99,8 @@ public class GameStarter {
         for (Weapon weapon : Weapon.values()) {
             cards.add(new Tool(weapon.toString(), weapon));
         }
-        SharedData.getInstance().cardDeck = new CardDeck(cards);
-        SharedData.getInstance().cardDeck.shuffle();
+        sharedData.cardDeck = new CardDeck(cards);
+        sharedData.cardDeck.shuffle();
         logger.log("Cards are initialized ", LogLevels.INFO);
     }
 
@@ -106,9 +108,9 @@ public class GameStarter {
      * Randomly choose a murder
      */
     public void murderInit() {
-        SharedData.getInstance().murderPlace = SharedData.getInstance().cardDeck.getRandomPlace();
-        SharedData.getInstance().murderSuspect = SharedData.getInstance().cardDeck.getRandomSuspect();
-        SharedData.getInstance().murderWeapon = SharedData.getInstance().cardDeck.getRandomTool();
+        sharedData.murderPlace = sharedData.cardDeck.getRandomPlace();
+        sharedData.murderSuspect = sharedData.cardDeck.getRandomSuspect();
+        sharedData.murderWeapon = sharedData.cardDeck.getRandomTool();
         logger.log("Murder are initialized ", LogLevels.INFO);
     }
 
@@ -117,7 +119,7 @@ public class GameStarter {
      */
     @Deprecated(since = "This job Should handle On ConfigFiles")
     private Location[] getDefaultPlayerLocations() {
-        int boardSize = SharedData.getInstance().BOARD_SIZE;
+        int boardSize = sharedData.BOARD_SIZE;
         return new Location[]{
                 new Location(boardSize / 3, 0),
                 new Location(2 * boardSize / 3, 0),
@@ -133,7 +135,7 @@ public class GameStarter {
      */
     @Deprecated(since = "THis job Should handle On Config Files Like XMLs ,YMLs, JSONs")
     private HashMap<Location, Location> getDefaultRoomLocations() {
-        int boardSize = SharedData.getInstance().BOARD_SIZE;
+        int boardSize = sharedData.BOARD_SIZE;
         HashMap<Location, Location> roomWithDoor = new HashMap<>();
 
         roomWithDoor.put(new Location(0, 0), new Location(0, 1));

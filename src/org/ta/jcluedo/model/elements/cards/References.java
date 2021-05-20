@@ -15,6 +15,10 @@ public class References {
     }
 
     public enum Color {
-        PURPLE, WHITE, RED, GREEN, YELLOW, BLUE
+        PURPLE(5), WHITE(7), RED(1), GREEN(2), YELLOW(3), BLUE(4);
+
+        Color(int i) {
+
+        }
     }
 }

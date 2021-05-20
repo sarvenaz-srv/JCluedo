@@ -1,5 +1,6 @@
 package org.ta.jcluedo.view.menu;
 
+//import org.ta.jcluedo.model.utils.SharedData;
 import org.ta.jcluedo.model.utils.SharedData;
 import org.ta.jcluedo.model.utils.logger.LogLevels;
 import org.ta.jcluedo.model.utils.logger.LoggingManager;
@@ -11,7 +12,7 @@ public class MainMenu {
     public static void printMenu() {
         logger.log("starting to print MainMenu", LogLevels.INFO);
         char escCode = SharedData.getInstance().ESC_CODE;
-        System.out.printf("%c[37m%c[%dm", escCode, escCode, 43, 1);
+        System.out.printf("\t\t\t\t%c[37m%c[%dm Main Menu ", escCode, escCode, 43, 1);
 
 
     }
