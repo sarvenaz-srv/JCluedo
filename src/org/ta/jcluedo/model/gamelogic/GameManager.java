@@ -49,6 +49,8 @@ public class GameManager {
             //Then Move Him to the Room
         }
 
+
+        //Check possibility of finish
         return isGameFinished;
     }
 
