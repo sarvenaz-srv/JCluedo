@@ -32,4 +32,12 @@ public class Location {
                 + ",                         \"y\":\"" + y + "\""
                 + "}}";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        Location location = (Location) obj;
+        if (this.x == location.getX() && this.y == location.getY())
+            return true;
+        return false;
+    }
 }
