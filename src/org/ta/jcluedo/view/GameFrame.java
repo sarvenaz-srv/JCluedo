@@ -45,6 +45,16 @@ public class GameFrame {
                 drawBlock(blocks[j][i], 6, 2);
             }
         }
+
+        for (int i = 0; i < sharedData.BOARD_SIZE; i++) {
+            for (int j = 0; j < sharedData.BOARD_SIZE; j++) {
+                if (sharedData.gameBoard.isRoom(blocks[j][i].getLocation())) { // in case it was a Room
+                    drawBlock(sharedData.gameBoard.getRooms()
+                            .get(blocks[j][i]).getDoor(), 7, 2,"-D-");
+
+                }
+            }
+        }
     }
 
     /**
@@ -122,4 +132,31 @@ public class GameFrame {
         System.out.println();
     }
 
+
+    /**
+     * Draw a single Block with a text
+     *
+     * @param block
+     * @param color
+     * @param length
+     * @param text   of block
+     */
+    private void drawBlock(Block block, int color, int length, String text) {
+        int number = 5;
+        int x = (block.getLocation().getX()) * 5 + 10;
+        int y = (block.getLocation().getY()) * 3 + 3;
+
+        for (int i = 0; i <= length - 1; i++) {
+
+            System.out.print(String.format("%c[%d;%df", escCode, y + i + 1, x + 1)); // set cursor location
+
+            if (i == 1) {
+                System.out.print(String.format("%c[%dm%s ", escCode, 40 + color, text));
+                continue;
+            }
+
+            System.out.print(String.format("%c[%dm    ", escCode, 40 + color));
+        }
+        System.out.println();
+    }
 }

@@ -1,5 +1,6 @@
 package org.ta.jcluedo.model.gamelogic;
 
+import org.ta.jcluedo.controller.MainController;
 import org.ta.jcluedo.model.utils.SharedData;
 import org.ta.jcluedo.model.utils.logger.LogLevels;
 import org.ta.jcluedo.model.utils.logger.LoggingManager;
@@ -11,7 +12,7 @@ public class GameLoop {
     private GameManager gameManager;
     private boolean isGameFinished;
     private SharedData sharedData;
-
+    private MainController mainController;
     public GameLoop() {
         gameManager = new GameManager();
         sharedData = SharedData.getInstance();
@@ -27,6 +28,10 @@ public class GameLoop {
             logger.log("player : " + sharedData.players[i].getNAME() + " turn", LogLevels.INFO);
 
             isGameFinished = gameManager.play(sharedData.players[i]);
+
+            //Tell Client to show new State
+            mainController.drawState();
+
             if (isGameFinished) {
                 logger.log("Game Finished", LogLevels.INFO);
                 break;

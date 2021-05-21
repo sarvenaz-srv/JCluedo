@@ -20,6 +20,7 @@ public class GameManager {
     public GameManager() {
         this.sharedData = SharedData.getInstance();
         this.gameBoard = sharedData.gameBoard;
+
     }
 
     /**
