@@ -12,7 +12,7 @@ import org.ta.jcluedo.view.GameFrame;
 public class MainController {
 
     private static final LoggingManager logger = new LoggingManager(MainController.class.getName());
-
+    private  GameFrame gameFrame;
     /**
      * Show The MainMenu and  get ready to read commands
      */
@@ -33,4 +33,9 @@ public class MainController {
 
     }
 
+
+    public void drawState(){
+        gameFrame.draw();
+
+    }
 }
